@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  pogodroid_to_rdm:
+    build: .
+    tty: true
+    restart: unless-stopped
+    ports:
+      - 5000:5000
+    container_name: pogodroid-to-rdm
+#    volumes:
+#      - .:/app
+    environment:
+      - RDM_URL=http://YOUR_RDM_URL:9001/raw
+    command: ["app.py"]
